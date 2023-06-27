@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Header = () => {
     const [logStatus, setLogStatus] = useState("Login")
     return (
         <header className="logo flex flex-row justify-between p-5 m-1 border-none outline-none shadow-lg shadow-green-100">
             <div >LOGO</div>
             <nav className='flex flex-row list-none w-1/2 justify-evenly'>
-                <li>Home</li>
-                <li>About</li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About</Link>
+                </li>
                 <li>Cart</li>
                 <li onClick={() => {
                     (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");

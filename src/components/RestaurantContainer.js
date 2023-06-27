@@ -50,7 +50,7 @@ const ResaturantContainer = () => {
                         )
                         setListOfFilteredRestaurants(filteredList);
                     }}>
-                    Filter To Rated Restaurants
+                    Filter Top Rated Restaurants
                 </button>
             </div >
 
