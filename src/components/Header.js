@@ -9,12 +9,7 @@ const Header = () => {
                 <li>About</li>
                 <li>Cart</li>
                 <li onClick={() => {
-                    if (logStatus === "Login") {
-                        setLogStatus("Logout");
-                    }
-                    if (logStatus === "Logout") {
-                        setLogStatus("Login");
-                    }
+                    (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
                 }}
                     className="cursor-pointer border-none outline-none bg-lime-500 p-1 px-2 rounded-lg text-white text-sm"
                 >{logStatus}</li>
