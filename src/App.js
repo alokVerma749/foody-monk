@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
@@ -10,6 +10,8 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 
+const Signup = lazy(() => import("./pages/Signup"))
+const Login = lazy(() => import("./pages/Login"))
 
 const AppLayout = () => {
     return (
@@ -33,11 +35,14 @@ const appRouter = createBrowserRouter([
                 path: "/about",
                 element: <About />
             }, {
-                path: "/login",
-                element: <About />
-            }, {
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu />
+            }, {
+                path: "/signup",
+                element: <Suspense><Signup /></Suspense>
+            }, {
+                path: "/login",
+                element: <Suspense><Login /></Suspense>
             }
         ],
         errorElement: <Error />

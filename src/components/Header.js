@@ -21,7 +21,11 @@ const Header = () => {
                     (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
                 }}
                     className="cursor-pointer border-none outline-none bg-lime-500 p-1 px-2 rounded-lg text-white text-sm"
-                >{logStatus}</li>
+                >
+                    <Link to={'/login'}>
+                        {logStatus}
+                    </Link>
+                </li>
             </nav>
         </header >
     )
