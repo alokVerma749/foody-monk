@@ -60,7 +60,7 @@ const ResaturantContainer = () => {
                 {
                     listOfFilteredRestaurants.map((restaurant) => {
                         return (
-                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id}>
+                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="card sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 rounded-md shadow-md shadow-green-300">
                                 < RestaurantCard resData={restaurant} />
                             </Link>
                         )
