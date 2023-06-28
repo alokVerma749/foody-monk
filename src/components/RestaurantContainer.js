@@ -1,27 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
-// import { CARDS } from "../../utils/mockData";
-import { RESTAURANT_API } from "../../utils/constants";
 import Shimmer from "./Shimeer";
 import { Link } from "react-router-dom";
+import useRestaurantCards from "../../utils/hooks/useRestaurantCards";
 
 
 const ResaturantContainer = () => {
-    const [listOfRestaurants, setlistOfRestaurants] = useState([]);
     const [listOfFilteredRestaurants, setListOfFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-
-    const fetchData = async () => {
-        const data = await fetch(RESTAURANT_API);
-        const json = await data.json();
-        setlistOfRestaurants(json?.data?.cards[2]?.data?.data?.cards)
-        setListOfFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards)
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const listOfRestaurants = useRestaurantCards(setListOfFilteredRestaurants);
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
