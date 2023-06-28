@@ -26,7 +26,6 @@ const ResaturantContainer = () => {
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
             <div className="serch-box flex flex-row justify-between p-5 w-full">
-
                 {/* Search field */}
                 <div className="search">
                     <input value={searchText} onChange={(e) => {
