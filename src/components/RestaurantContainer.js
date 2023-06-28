@@ -4,6 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 // import { CARDS } from "../../utils/mockData";
 import { RESTAURANT_API } from "../../utils/constants";
 import Shimmer from "./Shimeer";
+import { Link } from "react-router-dom";
 
 
 const ResaturantContainer = () => {
@@ -57,9 +58,11 @@ const ResaturantContainer = () => {
             {/* cards container */}
             <div className="res-container flex flex-row flex-wrap">
                 {
-                    listOfFilteredRestaurants.map((card) => {
+                    listOfFilteredRestaurants.map((restaurant) => {
                         return (
-                            < RestaurantCard key={card.data.id} resData={card} />
+                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id}>
+                                < RestaurantCard resData={restaurant} />
+                            </Link>
                         )
                     })
                 }
