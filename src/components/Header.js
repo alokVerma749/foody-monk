@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
 
 const Header = () => {
     const [logStatus, setLogStatus] = useState("Login");
     const onlineStatus = useOnlineStatus();
+
+    const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
     return (
         <header className="logo flex flex-row justify-between p-5 m-1 border-none outline-none shadow-lg shadow-green-100">
             <div >LOGO</div>
@@ -16,7 +21,11 @@ const Header = () => {
                 <li>
                     <Link to="/about">About</Link>
                 </li>
-                <li>Cart</li>
+                <li>
+                    <Link to="/cart">
+                        Cart-{cartItems.length}
+                    </Link>
+                </li>
                 <li onClick={() => {
                     (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
                 }}

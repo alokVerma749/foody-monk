@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from "../../utils/hooks/useRestaurantMenu";
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../utils/cartSlice';
 
 import { MENU_IMG_URL } from "../../utils/constants";
 import { IMG_URL } from "../../utils/constants";
@@ -9,6 +11,12 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
 
     const resInfo = useRestaurantMenu(resId);
+
+    const dispatch = useDispatch();
+
+    const addToCart = (menuItem) => {
+        dispatch(addItem(menuItem));
+    }
 
     const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "nhi"
     const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "nhi"
@@ -42,7 +50,7 @@ const RestaurantMenu = () => {
                                 <div className="image w-40">
                                     <img src={MENU_IMG_URL + menuItem.card.info.imageId} alt="restaurant_image" />
                                 </div>
-                                <button type="button" className="mx-5 bg-green-600 text-white w-24 h-10 hover:animate-pulse ">Add</button>
+                                <button type="button" className="mx-5 bg-green-600 text-white w-24 h-10 hover:animate-pulse " onClick={() => addToCart(menuItem)}>Add</button>
                             </li>
                         )
                     })
