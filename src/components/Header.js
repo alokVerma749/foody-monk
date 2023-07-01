@@ -14,7 +14,7 @@ const Header = () => {
         <header className="logo flex flex-row justify-between p-5 m-1 border-none outline-none shadow-lg shadow-green-100">
             <div >LOGO</div>
             <nav className='flex flex-row list-none w-1/2 justify-evenly'>
-                <li>{onlineStatus ? "✅" : "🔴"}</li>
+                <li className="animate-pulse">{onlineStatus ? "🔴 live" : "❗offline"}</li>
                 <li>
                     <Link to="/">Home</Link>
                 </li>
