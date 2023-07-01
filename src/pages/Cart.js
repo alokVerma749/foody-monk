@@ -4,13 +4,29 @@ import { MENU_IMG_URL } from "../../utils/constants";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../utils/cartSlice";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Cart = () => {
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const cartItems = useSelector(store => store.cart.items);
     const dispatch = useDispatch()
     const handleClearCart = () => {
         dispatch(clearCart());
     }
+    const calculateTotalPrice = () => {
+        let total = 0;
+        cartItems.forEach(item => {
+            total += item.card.info.price / 100;
+        });
+        return total;
+    };
+
+    // Update the total price when cartItems change
+    useEffect(() => {
+        setTotalPrice(calculateTotalPrice());
+    }, [cartItems]);
+    
     return (
         <div className="flex flex-col mx-auto max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
             <h2 className="text-xl font-semibold">Your cart</h2>
@@ -18,7 +34,7 @@ const Cart = () => {
             <ul className="flex flex-col divide-y divide-gray-300">
                 {
                     cartItems.map(cartItem => (
-                        <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
+                        <li key={cartItem.card.info.id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
                             <div className="flex w-full space-x-2 sm:space-x-4">
                                 <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem.card.info.imageId} alt="Polaroid camera" />
                                 <div className="flex flex-col justify-between w-full pb-4">
@@ -28,8 +44,8 @@ const Cart = () => {
                                             <p className="text-sm text-gray-600">{cartItem.card.info.description}</p>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-lg font-semibold">Rs.{cartItem.card.info.price / 100}</p>
-                                            <p className="text-sm line-through text-gray-400">75.50€</p>
+                                            <p className="text-lg font-semibold">₹{cartItem.card.info.price / 100}</p>
+                                            <p className="text-sm line-through text-gray-400">₹75.50</p>
                                         </div>
                                     </div>
                                     <div className="flex text-sm divide-x">
@@ -58,7 +74,7 @@ const Cart = () => {
             </ul>
             <div className="space-y-1 text-right">
                 <p>Total amount:
-                    <span className="font-semibold">357 €</span>
+                    <span className="font-semibold"> ₹{totalPrice}</span>
                 </p>
                 <p className="text-sm text-gray-600">Not including taxes and shipping costs</p>
             </div>
