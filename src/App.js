@@ -8,6 +8,7 @@ import About from './pages/About'
 import Error from './pages/Error'
 import RestaurantMenu from './pages/RestaurantMenu'
 import Cart from './pages/Cart'
+import Contact from './pages/Contact'
 
 
 import Header from './components/Header'
@@ -29,28 +30,32 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {
         path: "/",
-        element: <AppLayout />,
+        element: <AppLayout/>,
         children: [
             {
                 path: "/",
-                element: <Body />
+                element: <Body/>
             },
             {
                 path: "/about",
-                element: <About />
+                element: <About/>
+            },
+            {
+                path: "/contact",
+                element: <Contact/>
             },
             {
                 path: "/cart",
-                element: <Cart />
+                element: <Cart/>
             }, {
                 path: "/restaurants/:resId",
-                element: <RestaurantMenu />
+                element: <RestaurantMenu/>
             }, {
                 path: "/signup",
-                element: <Suspense fallback={<h1>Loading...</h1>}><Signup /></Suspense>
+                element: <Suspense fallback={<h1>Loading...</h1>}><Signup/></Suspense>
             }, {
                 path: "/login",
-                element: <Suspense fallback={<h1>Loading...</h1>}><Login /></Suspense>
+                element: <Suspense fallback={<h1>Loading...</h1>}><Login/></Suspense>
             }
         ],
         errorElement: <Error />
