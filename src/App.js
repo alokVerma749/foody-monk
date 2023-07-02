@@ -8,7 +8,11 @@ import About from './pages/About'
 import Error from './pages/Error'
 import RestaurantMenu from './pages/RestaurantMenu'
 import Cart from './pages/Cart'
+
 import Contact from './pages/Contact'
+
+import Checkout from './pages/Checkout'
+
 
 
 import Header from './components/Header'
@@ -54,8 +58,12 @@ const appRouter = createBrowserRouter([
                 path: "/signup",
                 element: <Suspense fallback={<h1>Loading...</h1>}><Signup/></Suspense>
             }, {
-                path: "/login",
+                path: "/login"
                 element: <Suspense fallback={<h1>Loading...</h1>}><Login/></Suspense>
+            }, {
+                path: "/checkout",
+                element: <Suspense fallback={<h1>Loading...</h1>}><Checkout /></Suspense>
+
             }
         ],
         errorElement: <Error />

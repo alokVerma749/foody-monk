@@ -26,7 +26,7 @@ const Cart = () => {
     useEffect(() => {
         setTotalPrice(calculateTotalPrice());
     }, [cartItems]);
-    
+
     return (
         <div className="flex flex-col mx-auto max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
             <h2 className="text-xl font-semibold">Your cart</h2>
@@ -82,9 +82,9 @@ const Cart = () => {
                 <Link to={"/"} type="button" className="px-6 py-2 border rounded-md border-indigo-600">Back
                     <span className="sr-only sm:not-sr-only"> to shop</span>
                 </Link>
-                <button type="button" className="px-6 py-2 border rounded-md bg-indigo-600 text-gray-50 border-indigo-600">
+                <Link to={"/checkout"} type="button" className="px-6 py-2 border rounded-md bg-indigo-600 text-gray-50 border-indigo-600">
                     <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
-                </button>
+                </Link>
             </div>
         </div>
     )
