@@ -22,19 +22,19 @@ const Header = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="/" className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Home</a>
-                <a href="/cart" className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Cart-{cartItems.length}</a>
-                <a href="/about" className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">About Us</a>
-                <a href="/contact" className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Contact</a>
+                <Link to={"/"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Home</Link>
+                <Link to={"/cart"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Cart-{cartItems.length}</Link>
+                <Link to={"/about"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">About Us</Link>
+                <Link to={"/contact"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Contact</Link>
                 <span className="animate-pulse font-bold px-1 bg-white rounded-full">{onlineStatus ? "🔴 live" : "❗offline"}</span>
               </div>
             </div>
           </div>
           <div className="hidden md:block">
-            <a href="/login" onClick={() => {
+            <Link to={"/login"} onClick={() => {
               (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
             }} className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-bold py-2 px-4 rounded-md transition ease-linear duration-300">{logStatus}
-            </a>
+            </Link>
           </div>
           <div className="-mr-2 flex md:hidden">
             <button onClick={toggleMenu} type="button" className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-red-500 focus:outline-none focus:bg-red-500 focus:text-gray-200">
@@ -49,18 +49,18 @@ const Header = () => {
         </div>
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/" className="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="/cart" className="text-white block px-3 py-2 rounded-md text-base font-medium">Cart-{cartItems.length}</a>
-            <a href="/about" className="text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="/contact" className="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            <Link to={"/"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
+            <Link to={"/cart"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Cart-{cartItems.length}</Link>
+            <Link to={"/about"} className="text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
+            <Link to={"/contact"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
           </div>
           <div className="pt-4 pb-3 border-t border-white">
             <div className="flex items-center px-5">
               <div className="ml-auto">
-                <a href="/login" onClick={() => {
+                <Link to={"/login"} onClick={() => {
                   (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
                 }} className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-bold py-2 px-4 rounded-md transition-all">{logStatus}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
