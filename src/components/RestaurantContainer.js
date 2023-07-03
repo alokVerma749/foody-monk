@@ -26,13 +26,13 @@ const ResaturantContainer = () => {
     }
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
-            <div className="serch-box flex flex-row justify-between p-5 w-full">
+            <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-5 mx-24 max-sm:pb-0 gap-3">
                 {/* Search field */}
-                <div className="search">
+                <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
                     <input value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                     }}
-                        type="text" name="search" id="search" placeholder='SEARCH' className='outline-none shadow-md shadow-orange-800 p-2' />
+                        type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
                     <button onClick={() => {
                         console.log(searchText);
                         const searchRestaurant = listOfRestaurants.filter(restaurant => (
@@ -40,11 +40,11 @@ const ResaturantContainer = () => {
                         ))
                         setListOfFilteredRestaurants(searchRestaurant)
 
-                    }} type="submit" className='bg-lime-400 p-1 mx-4 rounded-md text-white'>Search</button>
+                    }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
                 </div>
 
                 {/* filter button */}
-                <button type="button" className='bg-lime-400 p-2 flex rounded-md text-white w-fit'
+                <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
                     onClick={() => {
                         const filteredList = listOfFilteredRestaurants.filter(
                             (restaurant) => restaurant.data.avgRating >= 4
@@ -56,11 +56,11 @@ const ResaturantContainer = () => {
             </div >
 
             {/* cards container */}
-            <div className="res-container flex flex-row flex-wrap">
+            <div className="res-container flex justify-center flex-row flex-wrap">
                 {
                     listOfFilteredRestaurants.map((restaurant) => {
                         return (
-                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="card sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 rounded-md shadow-md shadow-green-300">
+                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="card sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-3 m-3 border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
                                 < RestaurantCard resData={restaurant} />
                             </Link>
                         )
