@@ -18,8 +18,8 @@ const RestaurantMenu = () => {
         dispatch(addItem(menuItem));
     }
 
-    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "nhi"
-    const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "nhi"
+    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "null"
+    const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null"
 
     return resInfo === null ? <Shimmer /> : (
         <section>

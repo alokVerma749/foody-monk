@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { setAccount } from '../../utils/userSlice';
 
 
 const Login = () => {
@@ -23,13 +25,21 @@ const Login = () => {
             "password": ""
         })
     }
+    const dispatch = useDispatch();
     const submitdata = async () => {
         try {
             const res = await axios.post('https://foody-monk-2.onrender.com/user//login', userData)
             const response = await res.data;
-            console.log(response);
             if (response.success) {
-                localStorage.setItem("token", response.token)
+                localStorage.setItem("token", response.token);
+                dispatch(setAccount(
+                    {
+                        isLoggedIn: true,
+                        name: "Ramesh Sippi",
+                        email: "dkfjjhe",
+                        address: "ewkfkjjheu",
+                    }
+                ))
                 toast.success(response.message, {
                     position: "top-right",
                     autoClose: 5000,
@@ -121,4 +131,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

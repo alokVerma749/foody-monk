@@ -3,17 +3,22 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
+import LogBtn from "./LogBtn";
 
 const Header = () => {
-  const [logStatus, setLogStatus] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Responsive Header toggle flag.
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const cartItems = useSelector(store => store.cart.items);
+  const user = useSelector(store => store.account.user);
+
   return (
     <header className="bg-red-600 sticky top-0 z-50">
+      {user.name}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -31,10 +36,7 @@ const Header = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <Link to={"/login"} onClick={() => {
-              (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
-            }} className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-bold py-2 px-4 rounded-md transition ease-linear duration-300">{logStatus}
-            </Link>
+            <LogBtn />
           </div>
           <div className="-mr-2 flex md:hidden">
             <button onClick={toggleMenu} type="button" className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-red-500 focus:outline-none focus:bg-red-500 focus:text-gray-200">
@@ -57,10 +59,7 @@ const Header = () => {
           <div className="pt-4 pb-3 border-t border-white">
             <div className="flex items-center px-5">
               <div className="ml-auto">
-                <Link to={"/login"} onClick={() => {
-                  (logStatus === "Login") ? setLogStatus("Logout") : setLogStatus("Login");
-                }} className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-bold py-2 px-4 rounded-md transition-all">{logStatus}
-                </Link>
+                <LogBtn />
               </div>
             </div>
           </div>
