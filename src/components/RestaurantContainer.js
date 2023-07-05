@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { scroller } from 'react-scroll';
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimeer";
@@ -11,6 +12,14 @@ const ResaturantContainer = () => {
     const [searchText, setSearchText] = useState("");
     const listOfRestaurants = useRestaurantCards(setListOfFilteredRestaurants);
     const onlineStatus = useOnlineStatus();
+
+    const handleScrollToSection = () => {
+        scroller.scrollTo('restaurants', {
+            smooth: true,
+            duration: 500,
+        });
+    };
+
     if (onlineStatus === false) {
         return <section className="flex items-center h-full sm:p-16 bg-gray-50 text-gray-800">
             <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
@@ -33,7 +42,7 @@ const ResaturantContainer = () => {
                     <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
                         <h1 className="text-5xl font-bold mb-6">Discover Delicious Restaurants</h1>
                         <p className="text-xl mb-12">Explore a wide range of cuisines and find your favorite restaurants.</p>
-                        <Link href="#restaurants" className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out">Get Started</Link>
+                        <Link className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out" onClick={handleScrollToSection}>Get Started</Link>
                     </div>
 
                     {/* Right Part */}
@@ -46,7 +55,7 @@ const ResaturantContainer = () => {
             <h3 className='mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800' id="restaurants">Top Restaurants</h3>
             <hr class="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
 
-            <div className="mx-auto">
+            <section id="top-restaurants" className="mx-auto">
                 <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-5 mx-24 max-sm:pb-0 gap-3">
                     {/* Search field */}
                     <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
@@ -88,7 +97,7 @@ const ResaturantContainer = () => {
                         })
                     }
                 </div>
-            </div>
+            </section>
         </>
     )
 }
