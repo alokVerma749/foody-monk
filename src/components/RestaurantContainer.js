@@ -26,6 +26,23 @@ const ResaturantContainer = () => {
     }
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
+            {/* Hero Section */}
+            <section className="bg-gray-900 text-white py-20">
+                <div className="sm:flex mx-auto items-center gap-5 px-24">
+                    {/* Left Part */}
+                    <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                        <h1 className="text-5xl font-bold mb-6">Discover Delicious Restaurants</h1>
+                        <p className="text-xl mb-12">Explore a wide range of cuisines and find your favorite restaurants.</p>
+                        <Link href="#restaurants" className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out">Get Started</Link>
+                    </div>
+
+                    {/* Right Part */}
+                    <div className="w-fit md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1616734755909-bb016ce64930?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Chef with Food" className="rounded-lg shadow-md" />
+                    </div>
+                </div>
+            </section>
+
             <h3 className='mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800' id="restaurants">Top Restaurants</h3>
             <hr class="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
 
