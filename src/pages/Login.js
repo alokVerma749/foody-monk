@@ -35,9 +35,6 @@ const Login = () => {
                 dispatch(setAccount(
                     {
                         isLoggedIn: true,
-                        name: "Ramesh Sippi",
-                        email: "dkfjjhe",
-                        address: "ewkfkjjheu",
                     }
                 ))
                 toast.success(response.message, {
