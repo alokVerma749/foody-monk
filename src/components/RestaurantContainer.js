@@ -26,46 +26,68 @@ const ResaturantContainer = () => {
     }
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
-            <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-5 mx-24 max-sm:pb-0 gap-3">
-                {/* Search field */}
-                <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
-                    <input value={searchText} onChange={(e) => {
-                        setSearchText(e.target.value);
-                    }}
-                        type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
-                    <button onClick={() => {
-                        console.log(searchText);
-                        const searchRestaurant = listOfRestaurants.filter(restaurant => (
-                            restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
-                        ))
-                        setListOfFilteredRestaurants(searchRestaurant)
+            {/* Hero Section */}
+            <section className="bg-gray-900 text-white py-20">
+                <div className="sm:flex mx-auto items-center gap-5 px-24">
+                    {/* Left Part */}
+                    <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                        <h1 className="text-5xl font-bold mb-6">Discover Delicious Restaurants</h1>
+                        <p className="text-xl mb-12">Explore a wide range of cuisines and find your favorite restaurants.</p>
+                        <Link href="#restaurants" className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out">Get Started</Link>
+                    </div>
 
-                    }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
+                    {/* Right Part */}
+                    <div className="w-fit md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1616734755909-bb016ce64930?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Chef with Food" className="rounded-lg shadow-md" />
+                    </div>
                 </div>
+            </section>
 
-                {/* filter button */}
-                <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
-                    onClick={() => {
-                        const filteredList = listOfFilteredRestaurants.filter(
-                            (restaurant) => restaurant.data.avgRating >= 4
-                        )
-                        setListOfFilteredRestaurants(filteredList);
-                    }}>
-                    Filter Top Rated Restaurants
-                </button>
-            </div >
+            <h3 className='mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800' id="restaurants">Top Restaurants</h3>
+            <hr class="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
 
-            {/* cards container */}
-            <div className="res-container flex justify-center flex-row flex-wrap">
-                {
-                    listOfFilteredRestaurants.map((restaurant) => {
-                        return (
-                            <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="card sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-3 m-3 border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
-                                < RestaurantCard resData={restaurant} />
-                            </Link>
-                        )
-                    })
-                }
+            <div className="mx-auto">
+                <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-5 mx-24 max-sm:pb-0 gap-3">
+                    {/* Search field */}
+                    <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
+                        <input value={searchText} onChange={(e) => {
+                            setSearchText(e.target.value);
+                        }}
+                            type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
+                        <button onClick={() => {
+                            console.log(searchText);
+                            const searchRestaurant = listOfRestaurants.filter(restaurant => (
+                                restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+                            ))
+                            setListOfFilteredRestaurants(searchRestaurant)
+
+                        }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
+                    </div>
+
+                    {/* filter button */}
+                    <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
+                        onClick={() => {
+                            const filteredList = listOfFilteredRestaurants.filter(
+                                (restaurant) => restaurant.data.avgRating >= 4
+                            )
+                            setListOfFilteredRestaurants(filteredList);
+                        }}>
+                        Filter Top Rated Restaurants
+                    </button>
+                </div >
+
+                {/* cards container */}
+                <div className="res-container flex justify-center flex-row flex-wrap">
+                    {
+                        listOfFilteredRestaurants.map((restaurant) => {
+                            return (
+                                <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="card sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 m-3 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
+                                    < RestaurantCard resData={restaurant} />
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </>
     )
