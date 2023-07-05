@@ -22,39 +22,43 @@ const RestaurantMenu = () => {
     const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null"
 
     return resInfo === null ? <Shimmer /> : (
-        <section>
-            <div className="info p-2 flex flex-row ">
-                <div className="image bg-cover bg-center w-fit border border-red-600">
-                    <img src={IMG_URL + cloudinaryImageId} alt="restaurant_image" />
+        <section className="container mx-auto">
+            <div className="info p-4 flex flex-row items-center">
+                <div className="image w-32 h-32 bg-cover bg-center border border-red-600 rounded-full overflow-hidden">
+                    <img src={IMG_URL + cloudinaryImageId} alt="restaurant_image" className="w-full h-full object-cover" />
                 </div>
-                <div className="description border border-green-600 w-1/2 mx-10">
-                    <h3 className='text-3xl font-medium text-red-800 flex justify-center m-4'>{name}</h3>
-                    <p>{city}</p>
-                    <p>{locality}</p>
-                    <div className="ratings">
-                        <p>{avgRating}</p>
-                        <p>{totalRatingsString}</p>
+                <div className="description ml-6">
+                    <h3 className="text-3xl font-medium text-red-800">{name}</h3>
+                    <p className="text-gray-500">{city}</p>
+                    <p className="text-gray-500">{locality}</p>
+                    <div className="flex items-center mt-2">
+                        <p className="text-red-600 font-semibold">{avgRating}</p>
+                        <p className="text-gray-500 ml-2">{totalRatingsString}</p>
                     </div>
                 </div>
             </div>
-            <div className="menu-items">
-                <h3 className='text-3xl font-medium text-red-800 flex justify-center m-4'>Menu Items</h3>
-                {
-                    itemCards.map((menuItem) => {
-                        return (
-                            <li key={menuItem.card.info.id} className="list-none flex flex-row border border-red-500 w-1/2 justify-center mx-auto space-y-4 my-3 items-center ">
-                                <div className="desc flex flex-col justify-center items-center mx-5 font-bold text-lg w-1/2">
-                                    <p>{menuItem.card.info.name}</p>
-                                    <p>Rs: {menuItem.card.info.price / 100}</p>
-                                </div>
-                                <div className="image w-40">
-                                    <img src={MENU_IMG_URL + menuItem.card.info.imageId} alt="restaurant_image" />
-                                </div>
-                                <button type="button" className="mx-5 bg-green-600 text-white w-24 h-10 hover:animate-pulse " onClick={() => addToCart(menuItem)}>Add</button>
-                            </li>
-                        )
-                    })
-                }
+            <div className="menu-items mt-8">
+                <h3 className="text-3xl font-medium text-red-800 mb-4">Menu Items</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {itemCards.map((menuItem) => (
+                        <li key={menuItem.card.info.id} className="border border-red-500 rounded-lg overflow-hidden">
+                            <div className="relative">
+                                <img src={MENU_IMG_URL + menuItem.card.info.imageId} alt="restaurant_image" className="w-full h-48 object-cover" />
+                                <button
+                                    type="button"
+                                    className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded-lg focus:outline-none hover:bg-red-700"
+                                    onClick={() => addToCart(menuItem)}
+                                >
+                                    Add
+                                </button>
+                            </div>
+                            <div className="p-4">
+                                <h4 className="text-lg font-semibold text-red-800">{menuItem.card.info.name}</h4>
+                                <p className="text-gray-500">Rs: {menuItem.card.info.price / 100}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     )
