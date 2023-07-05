@@ -25,7 +25,7 @@ const Login = () => {
     }
     const submitdata = async () => {
         try {
-            const res = await axios.post('http://localhost:4000/user/login', userData)
+            const res = await axios.post('https://foody-monk-2.onrender.com/login', userData)
             const response = await res.data;
             console.log(response);
             if (response.success) {

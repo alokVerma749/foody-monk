@@ -8,7 +8,7 @@ const Checkout = () => {
         isLoggedIn();
     }, [])
     const isLoggedIn = async () => {
-        const response = await axios.get('http://localhost:4000/checkout', {
+        const response = await axios.get('https://foody-monk-2.onrender.com/checkout', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         });
         if (response.data.success) {

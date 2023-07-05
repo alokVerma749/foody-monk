@@ -26,7 +26,7 @@ const Signup = () => {
     }
     const submitdata = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/user/signup', userData);
+            const response = await axios.post('https://foody-monk-2.onrender.com/signup', userData);
             if (response.data.success) {
                 console.log("toast");
                 toast.success(response.data.message, {
