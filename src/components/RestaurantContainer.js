@@ -53,7 +53,7 @@ const ResaturantContainer = () => {
             </section>
 
             <h3 className='mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800' id="restaurants">Top Restaurants</h3>
-            <hr class="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
+            <hr className="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
 
             <section id="top-restaurants" className="mx-auto">
                 <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-5 mx-24 max-sm:pb-0 gap-3">
