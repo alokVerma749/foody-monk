@@ -28,7 +28,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const submitdata = async () => {
         try {
-            const res = await axios.post('https://foody-monk-2.onrender.com/user//login', userData)
+            const res = await axios.post('https://foody-monk-2.onrender.com/user/login', userData)
             const response = await res.data;
             if (response.success) {
                 localStorage.setItem("token", response.token);
