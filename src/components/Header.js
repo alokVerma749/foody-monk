@@ -12,13 +12,9 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   const cartItems = useSelector(store => store.cart.items);
-  const user = useSelector(store => store.account.user);
-
   return (
     <header className="bg-red-600 sticky top-0 z-50">
-      {user.name}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
