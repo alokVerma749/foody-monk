@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 
 import { MENU_IMG_URL } from '../../utils/constants'
 import { ToastContainer, toast } from "react-toastify";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
 

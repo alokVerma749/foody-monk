@@ -14,15 +14,16 @@ import Checkout from './pages/Checkout'
 import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
+import Admin from './pages/Admin'
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
 
 const AppLayout = () => {
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            localStorage.removeItem("token");
-        }
+        // if (localStorage.getItem("token")) {
+        //     localStorage.removeItem("token");
+        // }
     }, [])
     return (
         <Provider store={store}>
@@ -65,6 +66,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/checkout",
                 element: <Suspense fallback={<h1>Loading...</h1>}><Checkout /></Suspense>
+            },
+            {
+                path: "/admin",
+                element: <Suspense fallback={<h1>Loading...</h1>}><Admin /></Suspense>
             }
         ],
         errorElement: <Error />
