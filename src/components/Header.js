@@ -26,7 +26,7 @@ const Header = () => {
                 <Link to={"/"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Home</Link>
                 <Link to={"/cart"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Cart-{cartItems.length}</Link>
                 <Link to={"/about"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">About Us</Link>
-                <Link to={"/admin"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Contact</Link>
+                <Link to={"/admin"} className="text-white px-3 py-2 text-base font-bold hover:font-black transition-all ease-in duration-300">Admin</Link>
                 <span className="animate-pulse font-bold px-1 bg-white rounded-full">{onlineStatus ? "🔴 live" : "❗offline"}</span>
               </div>
             </div>
