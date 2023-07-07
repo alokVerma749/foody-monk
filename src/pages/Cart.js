@@ -11,7 +11,7 @@ const Cart = () => {
 
     const cartItems = useSelector(store => store.cart.items);
     const dispatch = useDispatch();
-    
+
     const handleClearCart = () => {
         dispatch(clearCart());
     }
@@ -29,13 +29,15 @@ const Cart = () => {
     }, [cartItems]);
 
     return (
-        <div className="flex flex-col mx-auto max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
-            <h2 className="text-xl font-semibold">Your cart</h2>
-            <button className="bg-red-600 text-white w-fit p-1 rounded-md " onClick={handleClearCart}>Clear Cart</button>
+        <div className="flex flex-col mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-4 py-10 bg-gray-50 text-gray-800">
+            <div className="flex justify-between">
+                <h2 className="text-xl font-semibold">Your cart</h2>
+                <button className="bg-green-700 p-1 mx-4 rounded-md text-white hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200" onClick={handleClearCart}>Clear Cart</button>
+            </div>
             <ul className="flex flex-col divide-y divide-gray-300">
                 {
                     cartItems.map(cartItem => (
-                        <li key={cartItem.card.info.id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
+                        <li key={cartItem.card.info.id} className="flex flex-col py-5 sm:flex-row sm:justify-between">
                             <div className="flex w-full space-x-2 sm:space-x-4">
                                 <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem.card.info.imageId} alt="Polaroid camera" />
                                 <div className="flex flex-col justify-between w-full pb-4">
@@ -49,7 +51,7 @@ const Cart = () => {
                                             <p className="text-sm line-through text-gray-400">₹75.50</p>
                                         </div>
                                     </div>
-                                    <div className="flex text-sm divide-x">
+                                    <div className="flex text-sm">
                                         <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 fill-current">
                                                 <path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
@@ -74,16 +76,14 @@ const Cart = () => {
                 }
             </ul>
             <div className="space-y-1 text-right">
-                <p>Total amount:
-                    <span className="font-semibold"> ₹{totalPrice}</span>
-                </p>
+                <p className="text-lg font-semibold">Total amount: ₹{totalPrice}</p>
                 <p className="text-sm text-gray-600">Not including taxes and shipping costs</p>
             </div>
-            <div className="flex justify-end space-x-4">
+            <div className="flex justify-between space-x-4">
                 <Link to={"/"} type="button" className="px-6 py-2 border rounded-md border-indigo-600">Back
                     <span className="sr-only sm:not-sr-only"> to shop</span>
                 </Link>
-                <Link to={"/checkout"} type="button" className="px-6 py-2 border rounded-md bg-indigo-600 text-gray-50 border-indigo-600">
+                <Link to={"/checkout"} type="button" className="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">
                     <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
                 </Link>
             </div>
