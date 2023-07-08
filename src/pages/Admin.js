@@ -101,58 +101,58 @@ const Admin = () => {
         }
     }
 
-    return (<>
-        <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-        />
-        {
-            orders.length !== 0 ?
-                <div>
-                    <Link to={'/admin/addcuisine'} className="w-fit bg-green-600 m-5 p-3 mx-auto block">Add Cuisine</Link>
-                    <h1 className="font-semibold text-center text-3xl text-red-600">Pending Orders To Process</h1>
-                    <ul>
-                        {orders.map(order => <li className="border border-red-600 m-5" key={order._id}>
-                            {order.name}
-                            {order.address}
-                            <ul>
-                                {
-                                    order.cartItems.map(cartItem => <li key={cartItem.card.info.id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
-                                        <div className="flex w-full space-x-2 sm:space-x-4">
-                                            <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem.card.info.imageId} alt="Polaroid camera" />
-                                            <div className="flex flex-col justify-between w-full pb-4">
-                                                <div className="flex justify-between w-full pb-2 space-x-2">
-                                                    <div className="space-y-1">
-                                                        <h3 className="text-lg font-semibold leadi sm:pr-8">{cartItem.card.info.name}</h3>
-                                                        <p className="text-sm text-gray-600">{cartItem.card.info.description}</p>
-                                                    </div>
-                                                    <div className="text-right">
-                                                        <p className="text-lg font-semibold">₹{cartItem.card.info.price / 100}</p>
-                                                        <p className="text-sm line-through text-gray-400">₹75.50</p>
+    return (
+        <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {
+                orders.length !== 0 ?
+                    <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 py-10 bg-gray-50 text-gray-800">
+                        <Link to={'/admin/addcuisine'} className="w-fit block mx-auto bg-green-600 text-white py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Add Cuisine</Link>
+                        <h1 className="text-3xl font-semibold text-center text-red-700">Pending Orders To Process</h1>
+                        <ul className="divide-y divide-red-600">
+                            {orders.map(order => (
+                                <li className="p-4 bg-white shadow-md" key={order._id}>
+                                    <div className="text-lg font-bold mb-2">{order.name}</div>
+                                    <div className="mb-3">{order.address}</div>
+                                    <ul>
+                                        {order.cartItems.map(cartItem => (
+                                            <li key={cartItem.card.info.id} className="flex flex-col py-4 sm:py-6 sm:flex-row sm:justify-between border-b border-gray-300">
+                                                <div className="flex w-full space-x-2 sm:space-x-4">
+                                                    <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem.card.info.imageId} alt={cartItem.card.info.name} />
+                                                    <div className="flex flex-col justify-between w-full pb-4">
+                                                        <h3 className="text-lg font-semibold">{cartItem.card.info.name}</h3>
+                                                        <p className="text-gray-600">{cartItem.card.info.description}</p>
+                                                        <div className="flex items-center justify-between">
+                                                            <div className="text-sm line-through text-gray-400">₹75.50</div>
+                                                            <div className="text-lg font-semibold">₹{cartItem.card.info.price / 100}</div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>)
-                                }
-                            </ul>
-                            <button onClick={() => handleDelete(order._id)}>Done</button>
-
-                        </li>)}
-                    </ul>
-                </div>
-                :
-                <p>not fetched</p>
-        }
-    </>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className="flex justify-center items-center mt-5">
+                                        <button type="button" className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200" onClick={() => handleDelete(order._id)}>Done</button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    :
+                    <p className="text-2xl text-center font-black px-4 sm:px-6 lg:px-8 py-10 bg-gray-50 text-gray-800">No orders to display!</p>
+            }
+        </>
     )
 }
 
