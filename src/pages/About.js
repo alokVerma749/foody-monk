@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">About Us</h2>
+        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">About Us</h2>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg text-gray-700">
             Welcome to Foody Monk, your ultimate destination for delicious and convenient food delivery.

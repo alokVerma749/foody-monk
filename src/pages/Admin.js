@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { MENU_IMG_URL, URL } from "../../utils/constants";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
     const [orders, setOrders] = useState([]);
@@ -61,7 +62,6 @@ const Admin = () => {
             const response = await axios.delete(URL + 'admin/order/' + id, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
-            console.log(response);
             setOrders(response.data.orders);
             if (response.data.success) {
                 toast.success(response.data.message, {
@@ -100,6 +100,7 @@ const Admin = () => {
             });
         }
     }
+
     return (<>
         <ToastContainer
             position="top-right"
@@ -116,7 +117,8 @@ const Admin = () => {
         {
             orders.length !== 0 ?
                 <div>
-
+                    <Link to={'/admin/addcuisine'} className="w-fit bg-green-600 m-5 p-3 mx-auto block">Add Cuisine</Link>
+                    <h1 className="font-semibold text-center text-3xl text-red-600">Pending Orders To Process</h1>
                     <ul>
                         {orders.map(order => <li className="border border-red-600 m-5" key={order._id}>
                             {order.name}

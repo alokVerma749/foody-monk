@@ -15,6 +15,7 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 import Admin from './pages/Admin'
+import AddCuisne from './pages/AddCuisne'
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
@@ -66,6 +67,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/admin",
                 element: <Suspense fallback={<h1>Loading...</h1>}><Admin /></Suspense>
+            },
+            {
+                path: "/admin/addcuisine",
+                element: <Suspense fallback={<h1>Loading...</h1>}><AddCuisne /></Suspense>
             }
         ],
         errorElement: <Error />

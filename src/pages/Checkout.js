@@ -68,7 +68,6 @@ const Checkout = () => {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
             if (response.data.success) {
-                console.log(response);
                 toast.success(response.data.message, {
                     position: "top-right",
                     autoClose: 5000,
