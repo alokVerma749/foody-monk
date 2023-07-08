@@ -10,6 +10,8 @@ Through the app, users can browse through a wide range of food options, customiz
 
 With a focus on scalability and performance, the app utilizes Redux Toolkit for state management, ensuring a predictable and efficient flow of data throughout the application. Axios is employed for handling HTTP requests, enabling seamless communication between the frontend and the backend. 
 
+### [Backend of this project Link](https://github.com/alokVerma749/foody-monk-backend)
+
 ![image](https://github.com/alokVerma749/foody-monk/assets/87599400/3fcd2fec-4dc6-48b7-abf7-8d1f53afdde7)
 
 ![image](https://github.com/alokVerma749/foody-monk/assets/87599400/dd30501c-5a28-4809-b329-e7c23d3d6f47)
