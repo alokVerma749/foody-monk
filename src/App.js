@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -20,11 +20,6 @@ const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
 
 const AppLayout = () => {
-    useEffect(() => {
-        // if (localStorage.getItem("token")) {
-        //     localStorage.removeItem("token");
-        // }
-    }, [])
     return (
         <Provider store={store}>
             <Header />
@@ -33,6 +28,7 @@ const AppLayout = () => {
         </Provider>
     )
 }
+
 const appRouter = createBrowserRouter([
     {
         path: "/",
@@ -75,5 +71,6 @@ const appRouter = createBrowserRouter([
         errorElement: <Error />
     }
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);

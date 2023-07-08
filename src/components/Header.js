@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
 import LogBtn from "./LogBtn";
+import axios from "axios";
+import { setAccount } from "../../utils/userSlice";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
@@ -13,6 +15,39 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const cartItems = useSelector(store => store.cart.items);
+
+  const dispatch = useDispatch();
+
+  const authorise = async () => {
+    try {
+      const response = await axios.get('https://foody-monk-2.onrender.com/checkout', {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+      });
+      if (response.data.success) {
+        dispatch(setAccount({
+          isLoggedIn: true,
+          name: response.data.name,
+          email: response.data.email,
+          address: response.data.address,
+        }));
+      } else {
+        dispatch(setAccount({
+          isLoggedIn: false,
+          name: "",
+          email: "",
+          address: "",
+        }));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      authorise();
+    }
+  }, []);
+
   return (
     <header className="bg-red-600 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
