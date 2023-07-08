@@ -5,6 +5,8 @@ import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { URL } from "../../utils/constants";
+
 const Signup = () => {
     const [userData, setUserData] = useState(
         {
@@ -26,7 +28,7 @@ const Signup = () => {
     }
     const submitdata = async () => {
         try {
-            const response = await axios.post('https://foody-monk-2.onrender.com/user/signup', userData);
+            const response = await axios.post(URL + 'user/signup', userData);
             if (response.data.success) {
                 console.log("toast");
                 toast.success(response.data.message, {

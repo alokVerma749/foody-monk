@@ -7,6 +7,8 @@ import LogBtn from "./LogBtn";
 import axios from "axios";
 import { setAccount } from "../../utils/userSlice";
 
+import { URL } from "../../utils/constants";
+
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +22,7 @@ const Header = () => {
 
   const authorise = async () => {
     try {
-      const response = await axios.get('https://foody-monk-2.onrender.com/checkout', {
+      const response = await axios.get(URL + 'checkout', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
       if (response.data.success) {

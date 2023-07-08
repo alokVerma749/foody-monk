@@ -4,20 +4,20 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import { MENU_IMG_URL } from "../../utils/constants";
+import { MENU_IMG_URL, URL } from "../../utils/constants";
 
 const Admin = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
         fetchOrders()
-    }, [])
+    }, []);
+
     const fetchOrders = async () => {
         try {
-            const response = await axios.get('https://foody-monk-2.onrender.com/admin/orders', {
+            const response = await axios.get(URL + 'admin/orders', {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
             setOrders(response.data.orders);
-            console.log(response.data)
             if (response.data.success) {
                 toast.success(response.data.message, {
                     position: "top-right",
@@ -42,8 +42,53 @@ const Admin = () => {
                 });
             }
         } catch (error) {
-            console.log('hello ' + error.stack);
+            console.log(error.stack);
             toast.error('You are not an admin', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await axios.delete(URL + 'admin/order/' + id, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+            });
+            console.log(response);
+            setOrders(response.data.orders);
+            if (response.data.success) {
+                toast.success(response.data.message, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                })
+            } else {
+                toast.error(response.data.message, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        } catch (error) {
+            console.log(error.stack);
+            toast.error('order cannot be deleted', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -97,6 +142,8 @@ const Admin = () => {
                                     </li>)
                                 }
                             </ul>
+                            <button onClick={() => handleDelete(order._id)}>Done</button>
+
                         </li>)}
                     </ul>
                 </div>

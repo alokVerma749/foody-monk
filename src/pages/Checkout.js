@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import { MENU_IMG_URL } from '../../utils/constants';
+import { MENU_IMG_URL, URL } from '../../utils/constants';
 
 const Checkout = () => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -32,7 +32,7 @@ const Checkout = () => {
 
     const isLoggedIn = async () => {
         try {
-            const response = await axios.get('https://foody-monk-2.onrender.com/checkout', {
+            const response = await axios.get(URL + 'checkout', {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
             if (response.data.success) {
@@ -57,7 +57,7 @@ const Checkout = () => {
 
     const handleProceed = async () => {
         try {
-            const response = await axios.post('https://foody-monk-2.onrender.com/proceedwithpayment', {
+            const response = await axios.post(URL + 'proceedwithpayment', {
                 name: user.name,
                 email: user.email,
                 address: user.address,
