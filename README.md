@@ -45,6 +45,8 @@ In the current version, our food ordering app provides the following features:
 ![image](https://github.com/alokVerma749/foody-monk/assets/87599400/b4fa94c7-6f1f-4c49-8da7-dd95324862be)
 
 * ### Admin Panel
+* ![image](https://github.com/alokVerma749/foody-monk/assets/87599400/34777955-2f4c-45c4-847e-d2bb0c2b7c9c)
+
 * ### Uploading New Items
 
 These features allow users to authenticate themselves, add items to their cart, place orders, and provide an admin panel for managing the app's content. The app is built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, providing a robust and scalable foundation for our food ordering system.
