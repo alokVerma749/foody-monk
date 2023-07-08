@@ -1,4 +1,4 @@
-# Contributing to [Foody-Monk]
+# Contributing to Foody-Monk
 
 Welcome! We're excited that you're interested in contributing to our food ordering app. This document outlines the guidelines and information you need to know to contribute effectively.
 

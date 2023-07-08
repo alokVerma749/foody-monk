@@ -1,7 +1,7 @@
 MIT License
 ===========
 
-[Foody-Monk]
+Foody-Monk
 
 © [2023] Alok Kumar Verma
 
