@@ -35,7 +35,7 @@ After installing the necessary dependencies, run the following command to start 
   npm run dev
 ``` 
 
-The server will run on `http://localhost:3000`.
+The server will run on `http://localhost:1234`.
 
 ## Contribution Guidelines
 
