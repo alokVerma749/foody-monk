@@ -16,6 +16,7 @@ import Body from './components/Body'
 import Footer from './components/Footer'
 import Admin from './pages/Admin'
 import AddCuisne from './pages/AddCuisne'
+import Privacy from './pages/Privacy'
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
@@ -46,6 +47,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/privacy",
+                element: <Privacy />
             },
             {
                 path: "/cart",
