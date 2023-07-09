@@ -17,6 +17,7 @@ import Footer from './components/Footer'
 import Admin from './pages/Admin'
 import AddCuisne from './pages/AddCuisne'
 import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
@@ -51,6 +52,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/privacy",
                 element: <Privacy />
+            },
+            {
+                path: "/terms",
+                element: <Terms />
             },
             {
                 path: "/cart",
