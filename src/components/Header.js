@@ -6,7 +6,7 @@ import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
 import LogBtn from "./LogBtn";
 import axios from "axios";
 import { setAccount } from "../../utils/userSlice";
-import logo from '../images/Food-Monk.png';
+import logo from '../images/Foody-Monk.png';
 
 import { URL } from "../../utils/constants";
 
