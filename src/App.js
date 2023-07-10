@@ -15,7 +15,7 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 import Admin from './pages/Admin'
-import AddCuisne from './pages/AddCuisne'
+import AddCuisine from './pages/AddCuisine'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 
@@ -80,7 +80,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/admin/addcuisine",
-                element: <Suspense fallback={<h1>Loading...</h1>}><AddCuisne /></Suspense>
+                element: <Suspense fallback={<h1>Loading...</h1>}><AddCuisine /></Suspense>
             }
         ],
         errorElement: <Error />
