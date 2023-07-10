@@ -36,76 +36,83 @@ const ResaturantContainer = () => {
     }
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <>
-            <section className="bg-gray-900 text-white py-20">
-                <div className="sm:flex mx-auto items-center gap-5 max-w-7xl px-4 sm:px-6 lg:px-8">
-                    {/* Left Part */}
-                    <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
-                        <h1 className="text-5xl font-bold mb-6">Discover Delicious Restaurants</h1>
-                        <p className="text-xl mb-12">
-                            Explore a wide range of cuisines and find your favorite restaurants. Whether you're craving mouthwatering pizza, sizzling steaks, exotic sushi, or delightful desserts, our platform offers a diverse selection of culinary delights to satisfy every craving.
-                        </p>
-                        <Link className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out" onClick={handleScrollToSection}>Get Started</Link>
+            <div className="pb-12">
+                {/* Hero Section */}
+                <section className="bg-gray-900 text-white py-20">
+                    <div className="sm:flex mx-auto items-center gap-5 max-w-7xl px-4 sm:px-6 lg:px-8">
+                        {/* Left Part */}
+                        <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                            <h1 className="text-5xl font-bold mb-6">Discover Delicious Restaurants</h1>
+                            <p className="text-xl mb-12">
+                                Explore a wide range of cuisines and find your favorite restaurants. Whether you're craving mouthwatering pizza, sizzling steaks, exotic sushi, or delightful desserts, our platform offers a diverse selection of culinary delights to satisfy every craving.
+                            </p>
+                            <Link className="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 transition duration-200 ease-in-out" onClick={handleScrollToSection}>Get Started</Link>
+                        </div>
+
+                        {/* Right Part */}
+                        <div className="w-fit md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1616734755909-bb016ce64930?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Chef with Food" className="rounded-lg shadow-md" />
+                        </div>
                     </div>
-
-                    {/* Right Part */}
-                    <div className="w-fit md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1616734755909-bb016ce64930?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Chef with Food" className="rounded-lg shadow-md" />
+                    <div className="mx-auto mt-10 text-center max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-3xl font-bold mb-4">Experience the Finest Dining Experience</h2>
+                        <p className="text-lg">With our curated selection of restaurants, you can enjoy a wide variety of delicious cuisines crafted by expert chefs. From cozy cafes to upscale fine dining establishments, we bring you the best dining experiences that will tantalize your taste buds and leave you craving for more.</p>
                     </div>
-                </div>
-                <div className="mx-auto mt-10 text-center max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold mb-4">Experience the Finest Dining Experience</h2>
-                    <p className="text-lg">With our curated selection of restaurants, you can enjoy a wide variety of delicious cuisines crafted by expert chefs. From cozy cafes to upscale fine dining establishments, we bring you the best dining experiences that will tantalize your taste buds and leave you craving for more.</p>
-                </div>
-            </section>
+                </section>
 
-            <section id="restaurants" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h3 className="mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800">Top Restaurants</h3>
-                <hr className="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
-            </section>
+                {/* Heading Section */}
+                <section id="restaurants" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <h3 className="mt-4 mb-2 text-4xl tracking-tight font-bold text-center text-red-800">Top Restaurants</h3>
+                    <hr className="w-[275] h-1 mx-auto bg-gray-400 border-0 rounded"></hr>
+                </section>
 
-            <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-7 max-sm:pb-0 gap-3">
-                    {/* Search field */}
-                    <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
-                        <input value={searchText} onChange={(e) => {
-                            setSearchText(e.target.value);
-                        }}
-                            type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
-                        <button onClick={() => {
-                            console.log(searchText);
-                            const searchRestaurant = listOfRestaurants.filter(restaurant => (
-                                restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
-                            ))
-                            setListOfFilteredRestaurants(searchRestaurant)
+                {/* Search & Filter btn Section */}
+                <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="serch-box flex flex-col items-center sm:justify-between sm:flex-row p-7 max-sm:pb-0 gap-3">
+                        {/* Search field */}
+                        <div className="search max-sm:flex max-sm:flex-col max-sm:items-center">
+                            <input value={searchText} onChange={(e) => {
+                                setSearchText(e.target.value);
+                            }}
+                                type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
+                            <button onClick={() => {
+                                console.log(searchText);
+                                const searchRestaurant = listOfRestaurants.filter(restaurant => (
+                                    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+                                ))
+                                setListOfFilteredRestaurants(searchRestaurant)
 
-                        }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
-                    </div>
+                            }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
+                        </div>
 
-                    {/* filter button */}
-                    <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
-                        onClick={() => {
-                            const filteredList = listOfFilteredRestaurants.filter(
-                                (restaurant) => restaurant.data.avgRating >= 4
-                            )
-                            setListOfFilteredRestaurants(filteredList);
-                        }}>
-                        Filter Top Rated Restaurants
-                    </button>
-                </div >
+                        {/* filter button */}
+                        <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
+                            onClick={() => {
+                                const filteredList = listOfFilteredRestaurants.filter(
+                                    (restaurant) => restaurant.data.avgRating >= 4
+                                )
+                                setListOfFilteredRestaurants(filteredList);
+                            }}>
+                            Filter Top Rated Restaurants
+                        </button>
+                    </div >
+                </section>
 
                 {/* cards container */}
-                <div className="grid grid-flow-row gap-x-4 gap-y-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mx-auto max-sm:pt-3 max-w-7xl px-4 sm:px-6 lg:px-8">
-                    {
-                        listOfFilteredRestaurants.map((restaurant) => {
-                            return (
-                                <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="p-2 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
-                                    < RestaurantCard resData={restaurant} />
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
-            </section>
+                <section>
+                    <div className="grid grid-flow-row gap-x-4 gap-y-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 mx-auto max-sm:pt-3 max-w-7xl px-4 sm:px-6 lg:px-8">
+                        {
+                            listOfFilteredRestaurants.map((restaurant) => {
+                                return (
+                                    <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="p-2 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
+                                        < RestaurantCard resData={restaurant} />
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                </section>
+            </div>
         </>
     )
 }
