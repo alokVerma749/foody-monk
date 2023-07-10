@@ -22,8 +22,8 @@ const RestaurantMenu = () => {
     const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null"
 
     return resInfo === null ? <Shimmer /> : (
-        <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="info p-4 flex flex-row items-center">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+            <div className="info flex flex-row items-center">
                 <div className="image w-32 h-32 bg-cover bg-center border border-red-600 rounded-full overflow-hidden">
                     <img src={IMG_URL + cloudinaryImageId} alt="restaurant_image" className="w-full h-full object-cover" />
                 </div>

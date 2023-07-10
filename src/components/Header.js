@@ -6,6 +6,7 @@ import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
 import LogBtn from "./LogBtn";
 import axios from "axios";
 import { setAccount } from "../../utils/userSlice";
+import logo from '../images/Foody-Monk.png';
 
 import { URL } from "../../utils/constants";
 
@@ -56,7 +57,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className="h-8 w-8" src="/foody-monk.png" alt="Foody Monk Logo" />
+              <img className="h-14 w-14" src={logo} alt="Foody Monk Logo" />
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
