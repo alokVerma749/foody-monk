@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,6 +17,8 @@ const Login = () => {
             "password": ""
         }
     )
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         submitdata();
@@ -30,7 +32,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const submitdata = async () => {
         try {
-            const res = await axios.post(URL+'user/login', userData)
+            const res = await axios.post(URL + 'user/login', userData)
             const response = await res.data;
             if (response.success) {
                 localStorage.setItem("token", response.token);
@@ -38,7 +40,7 @@ const Login = () => {
                     {
                         isLoggedIn: true,
                     }
-                ))
+                ));
                 toast.success(response.message, {
                     position: "top-right",
                     autoClose: 5000,
@@ -49,6 +51,9 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 })
+                setTimeout(() => {
+                    navigate('/cart')
+                }, 1000);
             } else {
                 toast.error(response.message, {
                     position: "top-right",

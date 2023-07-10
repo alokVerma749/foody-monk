@@ -1,30 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useHistory } from "react-router-dom";
+import { URL } from "../../utils/constants";
 
 const AddCuisine = () => {
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [image, setImage] = useState("");
-    // const history = useHistory();
-
+    const [formData, setFormData] = useState({
+        name: "",
+        description: "",
+        image: ""
+    })
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
-            const formData = new FormData();
-            formData.append("name", name);
-            formData.append("description", description);
-            formData.append("image", image);
-
-            await axios.post("https://foody-monk-2.onrender.com/admin/cuisine", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
+            await axios.post(URL + "admin/cuisine", formData, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             });
-
-            history.push("/admin"); // Redirect to admin page after successfully adding the cuisine
         } catch (error) {
             console.log(error);
         }
@@ -42,8 +31,11 @@ const AddCuisine = () => {
                         type="text"
                         id="name"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={formData.name}
+                        onChange={(e) => setFormData({
+                            ...formData,
+                            name: e.target.value
+                        })}
                         required
                     />
                 </div>
@@ -55,8 +47,11 @@ const AddCuisine = () => {
                         id="description"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md"
                         rows="4"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        value={formData.description}
+                        onChange={(e) => setFormData({
+                            ...formData,
+                            description: e.target.value
+                        })}
                         required
                     ></textarea>
                 </div>
@@ -68,11 +63,14 @@ const AddCuisine = () => {
                         type="file"
                         id="image"
                         accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}
-                        required
+                        value={formData.image}
+                        onChange={(e) => setFormData({
+                            ...formData,
+                            image: e.target.value
+                        })}
                     />
                 </div>
-                <button onClick={handleSubmit} type="submit" className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">Add Cuisine</button>
+                <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">Add Cuisine</button>
             </form>
         </div>
     );

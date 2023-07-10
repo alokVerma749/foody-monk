@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,7 +15,8 @@ const Signup = () => {
             "email": "",
             "password": ""
         }
-    )
+    );
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         submitdata();
@@ -41,6 +42,9 @@ const Signup = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                setTimeout(() => {
+                    navigate('/cart')
+                }, 1000);
             } else {
                 toast.error(response.message, {
                     position: "top-right",
