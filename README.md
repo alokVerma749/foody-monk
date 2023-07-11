@@ -10,11 +10,13 @@ Through the app, users can browse through a wide range of food options, customiz
 
 With a focus on scalability and performance, the app utilizes Redux Toolkit for state management, ensuring a predictable and efficient flow of data throughout the application. Axios is employed for handling HTTP requests, enabling seamless communication between the frontend and the backend. 
 
-### [Backend of this project Link](https://github.com/alokVerma749/foody-monk-backend)
+### Backend of this project: [Link](https://github.com/alokVerma749/foody-monk-backend)
 
-![image](https://github.com/alokVerma749/foody-monk/assets/87599400/3fcd2fec-4dc6-48b7-abf7-8d1f53afdde7)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/18808073-2628-4e1d-ae5f-b801ec259b42)
 
-![image](https://github.com/alokVerma749/foody-monk/assets/87599400/dd30501c-5a28-4809-b329-e7c23d3d6f47)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/8bbf2f63-6102-415d-b758-093197b3eb1b)
+
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/3de6f087-aae7-4a10-b8bc-65cec9616515)
 
 ## Dependency
 - Redux toolkit
@@ -36,18 +38,19 @@ With a focus on scalability and performance, the app utilizes Redux Toolkit for 
 In the current version, our food ordering app provides the following features:
 
 * ### Authentication
-![image](https://github.com/alokVerma749/foody-monk/assets/87599400/7ea2409e-9942-49cc-a708-58801efeac24)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/749e0240-a109-4d28-aa88-3734b980a0cb)
 
 * ### Support for Cart
-![image](https://github.com/alokVerma749/foody-monk/assets/87599400/27b62f32-edd2-4559-9db9-410a91404b6b)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/2a444d1b-479e-4737-9387-af4bb091c2c6)
 
 * ### Order Placement
-![image](https://github.com/alokVerma749/foody-monk/assets/87599400/b4fa94c7-6f1f-4c49-8da7-dd95324862be)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/d626d8ff-dcd2-4386-8861-ca6a6ede04be)
 
 * ### Admin Panel
-* ![image](https://github.com/alokVerma749/foody-monk/assets/87599400/34777955-2f4c-45c4-847e-d2bb0c2b7c9c)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/35832671-9964-43cf-81e2-566c7292fdf7)
 
 * ### Uploading New Items
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/7451d2cb-305f-4d7d-b6e7-8bc89ed30bb8)
 
 These features allow users to authenticate themselves, add items to their cart, place orders, and provide an admin panel for managing the app's content. The app is built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, providing a robust and scalable foundation for our food ordering system.
 
