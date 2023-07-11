@@ -57,7 +57,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className="h-14 w-14" src={logo} alt="Foody Monk Logo" />
+              <img className="h-[50px] w-[50px]" src={logo} alt="Foody Monk Logo" />
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">

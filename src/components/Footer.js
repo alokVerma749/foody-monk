@@ -9,7 +9,10 @@ const Footer = () => {
                     <div className="w-full md:w-1/4 text-center">
                         <h3 className="text-xl font-bold mb-4">About Us</h3>
                         <p className="text-sm mb-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat magna at condimentum ultrices.
+                            Explore a wide range of cuisines and find your favorite restaurants with our curated selection of restaurants.&nbsp;
+                            <Link to="/about" className="text-blue-400 hover:text-blue-500">
+                                Read More...
+                            </Link>
                         </p>
                         <ul className="inline-flex space-x-4">
                             <li>
@@ -78,7 +81,7 @@ const Footer = () => {
                         &copy; {new Date().getFullYear()} Foody Monk. All rights reserved.
                     </div>
                     <div className="border-b border-gray-700 text-center text-sm">
-                        Created by ❣️ <a href="https://github.com/jalandhar04" target="_blank" className="text-blue-400">Jalandhar</a> &amp; <a href="https://github.com/alokverma749" target="_blank" className="text-blue-400">Alok</a>
+                        Created by ❣️ <a href="https://github.com/jalandhar04" target="_blank" className="text-blue-400 hover:text-blue-500">Jalandhar</a> &amp; <a href="https://github.com/alokverma749" target="_blank" className="text-blue-400 hover:text-blue-500">Alok</a>
                     </div>
                 </div>
             </div>
