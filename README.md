@@ -14,9 +14,9 @@ With a focus on scalability and performance, the app utilizes Redux Toolkit for 
 
 ![image](https://github.com/jalandhar04/foody-monk/assets/98611278/18808073-2628-4e1d-ae5f-b801ec259b42)
 
-![image](https://github.com/jalandhar04/foody-monk/assets/98611278/8bbf2f63-6102-415d-b758-093197b3eb1b)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/d7889f9f-913c-41aa-8c43-fa6f71b9b141)
 
-![image](https://github.com/jalandhar04/foody-monk/assets/98611278/3de6f087-aae7-4a10-b8bc-65cec9616515)
+![image](https://github.com/jalandhar04/foody-monk/assets/98611278/7a9523df-10b7-472f-a3ae-ba1ca6bf27b6)
 
 ## Dependency
 - Redux toolkit
