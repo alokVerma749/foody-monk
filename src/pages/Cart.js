@@ -49,6 +49,9 @@ const Cart = () => {
                                 <div className="flex flex-col justify-between w-full pb-4">
                                     <div className="flex justify-between w-full pb-2 space-x-2">
                                         <div className="space-y-1">
+                                            <p className="text-sm font-semibold text-gray-600">
+                                                {cartItem?.name}
+                                            </p>
                                             <h3 className="text-lg font-semibold leadi sm:pr-8">{cartItem?.menuItem?.card?.info?.name}</h3>
                                             <p className="text-sm text-gray-600">{cartItem?.menuItem?.card?.info?.description}</p>
                                         </div>
