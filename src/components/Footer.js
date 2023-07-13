@@ -41,13 +41,10 @@ const Footer = () => {
                     <div className="w-full md:w-1/4 text-center">
                         <h3 className="text-xl font-bold mb-4">Contact Us</h3>
                         <p className="text-sm mb-3">
-                            123 Street, City Name, Country
+                            Email: <a href="mailto:alokverma749@gmail.com">alokverma749@gmail.com</a>
                         </p>
                         <p className="text-sm mb-3">
-                            Phone: +1 234 5678
-                        </p>
-                        <p className="text-sm mb-3">
-                            Email: info@example.com
+                            Email: <a href="mailto:contact@jalandharpaswan.com">contact@jalandharpaswan.com</a>
                         </p>
                     </div>
                     <div className="w-full md:w-1/4 text-center">
