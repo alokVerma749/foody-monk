@@ -144,6 +144,9 @@ const Admin = () => {
                                                     alt={cartItem?.menuItem?.card?.info?.name}
                                                 />
                                                 <div className="flex flex-col justify-between w-full pb-4">
+                                                     <p className="text-gray-600">
+                                                        {cartItem?.name}
+                                                    </p>
                                                     <h3 className="text-lg font-semibold">
                                                         {cartItem?.menuItem?.card?.info?.name}
                                                     </h3>
