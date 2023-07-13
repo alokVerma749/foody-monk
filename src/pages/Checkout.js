@@ -25,7 +25,7 @@ const Checkout = () => {
     const calculateTotalPrice = () => {
         let total = 0;
         cartItems.forEach(item => {
-            total += item.card.info.price / 100;
+            total += item?.menuItem?.card?.info?.price / 100;
         });
         return total;
     };
@@ -121,19 +121,19 @@ const Checkout = () => {
                         <h3 className="order text-center text-xl font-semibold mb-2">Order Summary</h3>
                         <ul className="flex flex-col divide-y divide-gray-300">
                             {cartItems.map(cartItem => (
-                                <li key={cartItem.card.info.id} className="flex flex-col py-5 sm:flex-row sm:justify-between">
+                                <li key={cartItem?.menuItem?.card?.info?.id} className="flex flex-col py-5 sm:flex-row sm:justify-between">
                                     <div className="flex w-full space-x-2 sm:space-x-4">
                                         <img
                                             className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500"
-                                            src={MENU_IMG_URL + cartItem.card.info.imageId}
-                                            alt={cartItem.card.info.name}
+                                            src={MENU_IMG_URL + cartItem?.menuItem?.card?.info?.imageId}
+                                            alt={cartItem?.menuItem?.card?.info?.name}
                                         />
                                         <div className="flex flex-col justify-between w-full pb-4">
-                                            <h3 className="text-lg font-semibold">{cartItem.card.info.name}</h3>
-                                            <p className="text-gray-600">{cartItem.card.info.description}</p>
+                                            <h3 className="text-lg font-semibold">{cartItem?.menuItem?.card?.info?.name}</h3>
+                                            <p className="text-gray-600">{cartItem?.menuItem?.card?.info?.description}</p>
                                             <div className="flex items-center justify-between">
                                                 <div className="text-sm line-through text-gray-400">₹75.50</div>
-                                                <div className="text-lg font-semibold">₹{cartItem.card.info.price / 100}</div>
+                                                <div className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</div>
                                             </div>
                                         </div>
                                     </div>

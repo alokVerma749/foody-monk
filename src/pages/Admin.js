@@ -134,28 +134,28 @@ const Admin = () => {
                                 <ul>
                                     {order.cartItems.map((cartItem) => (
                                         <li
-                                            key={cartItem.card.info.id}
+                                            key={cartItem?.menuItem?.card?.info?.id}
                                             className="flex flex-col py-4 sm:py-6 sm:flex-row sm:justify-between border-b border-gray-300"
                                         >
                                             <div className="flex w-full space-x-2 sm:space-x-4">
                                                 <img
                                                     className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500"
-                                                    src={MENU_IMG_URL + cartItem.card.info.imageId}
-                                                    alt={cartItem.card.info.name}
+                                                    src={MENU_IMG_URL + cartItem?.menuItem?.card?.info?.imageId}
+                                                    alt={cartItem?.menuItem?.card?.info?.name}
                                                 />
                                                 <div className="flex flex-col justify-between w-full pb-4">
                                                     <h3 className="text-lg font-semibold">
-                                                        {cartItem.card.info.name}
+                                                        {cartItem?.menuItem?.card?.info?.name}
                                                     </h3>
                                                     <p className="text-gray-600">
-                                                        {cartItem.card.info.description}
+                                                        {cartItem?.menuItem?.card?.info?.description}
                                                     </p>
                                                     <div className="flex items-center justify-between">
                                                         <div className="text-sm line-through text-gray-400">
                                                             ₹75.50
                                                         </div>
                                                         <div className="text-lg font-semibold">
-                                                            ₹{cartItem.card.info.price / 100}
+                                                            ₹{cartItem?.menuItem?.card?.info?.price / 100}
                                                         </div>
                                                     </div>
                                                 </div>
