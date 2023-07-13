@@ -82,9 +82,15 @@ const Cart = () => {
                 <Link to={"/"} type="button" className="px-6 py-2 border rounded-md border-indigo-600">Back
                     <span className="sr-only sm:not-sr-only"> to shop</span>
                 </Link>
-                <Link to={"/checkout"} type="button" className="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">
-                    <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
-                </Link>
+                {
+                    (totalPrice) ?
+                        <Link to={"/checkout"} type="button" className="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 cursor-pointer">
+                            <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
+                        </Link> :
+                        <p type="button" className="px-6 py-2 rounded-md bg-gray-600 text-white">
+                            <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
+                        </p>
+                }
             </div>
         </div>
     )
