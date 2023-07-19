@@ -5,14 +5,15 @@ Welcome! We're excited that you're interested in contributing to our food orderi
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
-2. [Development Setup](#development-setup)
-3. [Contribution Guidelines](#contribution-guidelines)
-4. [Pull Request Process](#pull-request-process)
-5. [Code Style](#code-style)
-6. [Testing](#testing)
-7. [Issue Tracking](#issue-tracking)
-8. [Contact](#contact)
-9. [License](#license)
+2. [How to contribute](#how-to-contribute)
+3. [Development Setup](#development-setup)
+4. [Contribution Guidelines](#contribution-guidelines)
+5. [Pull Request Process](#pull-request-process)
+6. [Code Style](#code-style)
+7. [Testing](#testing)
+8. [Issue Tracking](#issue-tracking)
+9. [Contact](#contact)
+10. [License](#license)
 
 ## Getting Started
 
@@ -21,6 +22,19 @@ To get started with contributing to the project, you'll need to follow these ste
 1. Fork the repository on GitHub.
 2. Clone the forked repository to your local machine.
 3. Install the necessary dependencies.
+
+## How to Contribute
+
+1. Fork the repository to your GitHub account.
+2. Create a new branch for your contribution: `git checkout -b feature/my-contribution`.
+3. Install the project dependencies using `npm ci` to ensure a clean and reproducible installation.
+4. Make your desired changes or add new features.
+5. Commit your changes with clear and descriptive commit messages.
+6. Push your changes to your branch: `git push origin feature/my-contribution`.
+7. Open a pull request (PR) against the `main` branch of the main repository.
+8. Ensure that your PR description clearly explains the purpose and scope of your contribution.
+9. Be responsive to any feedback or questions requested during the review process.
+10. Once your PR is approved, it will be merged into the main repository.
 
 ## Development Setup
 
