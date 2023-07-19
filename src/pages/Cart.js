@@ -56,7 +56,10 @@ const Cart = () => {
                                             <p className="text-sm text-gray-600">{cartItem?.menuItem?.card?.info?.description}</p>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</p>
+                                            {/* Need a look */}
+                                            {
+                                                (cartItem?.menuItem?.card?.info?.price) ? <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</p> : <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.pricdefaultPrice / 100}</p>
+                                            }
                                             <p className="text-sm line-through text-gray-400">₹75.50</p>
                                         </div>
                                     </div>
