@@ -60,7 +60,10 @@ const RestaurantMenu = () => {
                             </div>
                             <div className="p-4">
                                 <h4 className="text-lg font-semibold text-red-800">{menuItem.card.info.name}</h4>
-                                <p className="text-gray-500">Rs: {menuItem.card.info.price / 100}</p>
+                                {
+                                    (menuItem.card.info.price) ? <p className="text-gray-500">Rs: {menuItem.card.info.price / 100}</p> : <p className="text-gray-500">Rs: {menuItem.card.info.defaultPrice / 100}</p>
+                                }
+
                             </div>
                         </li>
                     ))}
