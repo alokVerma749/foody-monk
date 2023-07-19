@@ -18,9 +18,12 @@ const RestaurantMenu = () => {
         dispatch(addItem(menuItem));
     }
 
-    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "null"
-    const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null"
+    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "null";
 
+    let { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null";
+    if (!itemCards) {
+        itemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards;
+    }
     return resInfo === null ? <Shimmer /> : (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
             <div className="info flex flex-row items-center">
