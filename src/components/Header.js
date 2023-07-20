@@ -88,7 +88,7 @@ const Header = () => {
             <Link to={"/"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
             <Link to={"/cart"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Cart-{cartItems.length}</Link>
             <Link to={"/about"} className="text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
-            <Link to={"/contact"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
+            <Link to={"/admin"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Admin</Link>
           </div>
           <div className="pt-4 pb-3 border-t border-white">
             <div className="flex items-center px-5">
