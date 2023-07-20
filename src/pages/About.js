@@ -79,7 +79,7 @@ const About = () => {
                 <p className="text-lg text-gray-900 text-center">Documentation</p>
               </a>
               <a href="https://github.com/#" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
-                <img src="https://avatars.githubusercontent.com/u/114465453?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
+                <img src="https://avatars.githubusercontent.com/u/90683544?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
                 <h3 className="text-xl font-medium text-gray-900 text-center">Ankit Vishwakarma</h3>
                 <p className="text-lg text-gray-900 text-center">Project Manager</p>
               </a>
