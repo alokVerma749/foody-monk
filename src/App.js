@@ -13,7 +13,6 @@ import Checkout from './pages/Checkout'
 import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
-import Admin from './pages/Admin'
 import AddCuisine from './pages/AddCuisine'
 
 const Admin = lazy(() => import("./pages/Admin"));
