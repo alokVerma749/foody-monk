@@ -24,7 +24,11 @@ const Cart = () => {
     const calculateTotalPrice = () => {
         let total = 0;
         cartItems.forEach(item => {
-            total += item?.menuItem?.card?.info?.price / 100;
+            if (item?.menuItem?.card?.info?.price) {
+                total += item?.menuItem?.card?.info?.price / 100;
+            } else {
+                total += item?.menuItem?.card?.info?.defaultPrice / 100;
+            }
         });
         return total;
     };
@@ -56,9 +60,8 @@ const Cart = () => {
                                             <p className="text-sm text-gray-600">{cartItem?.menuItem?.card?.info?.description}</p>
                                         </div>
                                         <div className="text-right">
-                                            {/* Need a look */}
                                             {
-                                                (cartItem?.menuItem?.card?.info?.price) ? <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</p> : <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.pricdefaultPrice / 100}</p>
+                                                (cartItem?.menuItem?.card?.info?.price) ? <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</p> : <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.defaultPrice / 100}</p>
                                             }
                                             <p className="text-sm line-through text-gray-400">₹75.50</p>
                                         </div>
