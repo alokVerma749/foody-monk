@@ -18,9 +18,12 @@ const RestaurantMenu = () => {
         dispatch(addItem(menuItem));
     }
 
-    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "null"
-    const { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null"
+    const { name, city, locality, cuisines, avgRating, costForTwo, totalRatingsString, cloudinaryImageId } = resInfo ? resInfo?.cards[0]?.card?.card?.info : "null";
 
+    let { itemCards } = resInfo ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card : "null";
+    if (!itemCards) {
+        itemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards;
+    }
     return resInfo === null ? <Shimmer /> : (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
             <div className="info flex flex-row items-center">
@@ -57,7 +60,10 @@ const RestaurantMenu = () => {
                             </div>
                             <div className="p-4">
                                 <h4 className="text-lg font-semibold text-red-800">{menuItem.card.info.name}</h4>
-                                <p className="text-gray-500">Rs: {menuItem.card.info.price / 100}</p>
+                                {
+                                    (menuItem.card.info.price) ? <p className="text-gray-500">Rs: {menuItem.card.info.price / 100}</p> : <p className="text-gray-500">Rs: {menuItem.card.info.defaultPrice / 100}</p>
+                                }
+
                             </div>
                         </li>
                     ))}

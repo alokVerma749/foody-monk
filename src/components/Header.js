@@ -4,50 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
 import LogBtn from "./LogBtn";
-import axios from "axios";
 import { setAccount } from "../../utils/userSlice";
 import logo from '../images/Foody-Monk.png';
 
-import { URL } from "../../utils/constants";
+import useAuthorise from "../../utils/hooks/useAuthorise";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   // Responsive Header toggle flag.
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const cartItems = useSelector(store => store.cart.items);
 
+  const cartItems = useSelector(store => store.cart.items);
   const dispatch = useDispatch();
 
-  const authorise = async () => {
-    try {
-      const response = await axios.get(URL + 'checkout', {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-      });
-      if (response.data.success) {
-        dispatch(setAccount({
-          isLoggedIn: true,
-          name: response.data.name,
-          email: response.data.email,
-          address: response.data.address,
-        }));
-      } else {
-        dispatch(setAccount({
-          isLoggedIn: false,
-          name: "",
-          email: "",
-          address: "",
-        }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      authorise();
+      const res = useAuthorise();
+      dispatch(setAccount(res));
     }
   }, []);
 
@@ -88,7 +65,7 @@ const Header = () => {
             <Link to={"/"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
             <Link to={"/cart"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Cart-{cartItems.length}</Link>
             <Link to={"/about"} className="text-white block px-3 py-2 rounded-md text-base font-medium">About</Link>
-            <Link to={"/contact"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
+            <Link to={"/admin"} className="text-white block px-3 py-2 rounded-md text-base font-medium">Admin</Link>
           </div>
           <div className="pt-4 pb-3 border-t border-white">
             <div className="flex items-center px-5">

@@ -144,7 +144,7 @@ const Admin = () => {
                                                     alt={cartItem?.menuItem?.card?.info?.name}
                                                 />
                                                 <div className="flex flex-col justify-between w-full pb-4">
-                                                     <p className="text-gray-600">
+                                                    <p className="text-gray-600">
                                                         {cartItem?.name}
                                                     </p>
                                                     <h3 className="text-lg font-semibold">
@@ -158,7 +158,9 @@ const Admin = () => {
                                                             ₹75.50
                                                         </div>
                                                         <div className="text-lg font-semibold">
-                                                            ₹{cartItem?.menuItem?.card?.info?.price / 100}
+                                                            {
+                                                                (cartItem?.menuItem?.card?.info?.price) ? <p>₹{cartItem?.menuItem?.card?.info?.price / 100}</p> : <p>₹{cartItem?.menuItem?.card?.info?.defaultPrice / 100}</p>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>

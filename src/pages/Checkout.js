@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
-import { setAccount } from "../../utils/userSlice";
+
 import { Navigate } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { MENU_IMG_URL, URL } from '../../utils/constants';
+
+import { setAccount } from "../../utils/userSlice";
+import useAuthorise from "../../utils/hooks/useAuthorise";
 
 const Checkout = () => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -15,8 +20,13 @@ const Checkout = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        isLoggedIn();
+        isLoggedInFn();
     }, []);
+
+    const isLoggedInFn = async () => {
+        const res = await useAuthorise();
+        dispatch(setAccount(res));
+    }
 
     useEffect(() => {
         setTotalPrice(calculateTotalPrice());
@@ -25,34 +35,13 @@ const Checkout = () => {
     const calculateTotalPrice = () => {
         let total = 0;
         cartItems.forEach(item => {
-            total += item?.menuItem?.card?.info?.price / 100;
+            if (item?.menuItem?.card?.info?.price) {
+                total += item?.menuItem?.card?.info?.price / 100;
+            } else {
+                total += item?.menuItem?.card?.info?.defaultPrice / 100;
+            }
         });
         return total;
-    };
-
-    const isLoggedIn = async () => {
-        try {
-            const response = await axios.get(URL + 'checkout', {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-            });
-            if (response.data.success) {
-                dispatch(setAccount({
-                    isLoggedIn: true,
-                    name: response.data.name,
-                    email: response.data.email,
-                    address: response.data.address,
-                }));
-            } else {
-                dispatch(setAccount({
-                    isLoggedIn: false,
-                    name: "",
-                    email: "",
-                    address: "",
-                }));
-            }
-        } catch (error) {
-            console.error(error);
-        }
     };
 
     const handleProceed = async () => {
@@ -133,7 +122,9 @@ const Checkout = () => {
                                             <p className="text-gray-600">{cartItem?.menuItem?.card?.info?.description}</p>
                                             <div className="flex items-center justify-between">
                                                 <div className="text-sm line-through text-gray-400">₹75.50</div>
-                                                <div className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</div>
+                                                {
+                                                    (cartItem?.menuItem?.card?.info?.price) ? <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.price / 100}</p> : <p className="text-lg font-semibold">₹{cartItem?.menuItem?.card?.info?.defaultPrice / 100}</p>
+                                                }
                                             </div>
                                         </div>
                                     </div>
