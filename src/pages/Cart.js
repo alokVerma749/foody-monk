@@ -45,7 +45,7 @@ const Cart = () => {
                     cartItems.map(cartItem => (
                         <li key={cartItem?.menuItem?.card?.info?.id} className="flex flex-col py-5 sm:flex-row sm:justify-between">
                             <div className="flex w-full space-x-2 sm:space-x-4">
-                                <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem?.menuItem?.card?.info?.imageId} alt="Polaroid camera" />
+                                <img className="flex-shrink-0 object-cover w-20 h-20 border-transparent rounded outline-none sm:w-32 sm:h-32 bg-gray-500" src={MENU_IMG_URL + cartItem?.menuItem?.card?.info?.imageId} alt="Image not provided" />
                                 <div className="flex flex-col justify-between w-full pb-4">
                                     <div className="flex justify-between w-full pb-2 space-x-2">
                                         <div className="space-y-1">
