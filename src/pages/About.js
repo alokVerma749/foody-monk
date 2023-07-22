@@ -35,7 +35,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 space-y-10">
             <h2 className="text-2xl text-red-600 text-center font-medium mb-2 mt-6">Who We Are</h2>
             <p className="text-lg text-gray-700 mt-4 mb-4">
               Our dedicated team of chefs and delivery experts work tirelessly to bring you a wide range of culinary delights right to your doorstep.
@@ -62,36 +62,16 @@ const About = () => {
 
           <section className="mb-8">
             <h2 className="text-2xl text-red-600 text-center font-medium mb-2 mt-6">The Talented People Behind the Scenes of the Organization</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="justify-center items-center grid md:grid-cols-2 sm:grid-cols-1 gap-6">
               <a href="https://github.com/alokverma749" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
                 <img src="https://avatars.githubusercontent.com/u/87599400?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
                 <h3 className="text-xl font-medium text-gray-900 text-center">Alok Verma</h3>
-                <p className="text-lg text-gray-900 text-center">Backend Developer</p>
+                <p className="text-lg text-gray-900 text-center">Frontend / Backend</p>
               </a>
               <a href="https://github.com/jalandhar04" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
                 <img src="https://avatars.githubusercontent.com/u/98611278?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
                 <h3 className="text-xl font-medium text-gray-900 text-center">Jalandhar</h3>
-                <p className="text-lg text-gray-900 text-center">Frontend Developer</p>
-              </a>
-              <a href="https://github.com/amankushwaha100" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
-                <img src="https://avatars.githubusercontent.com/u/109275885?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
-                <h3 className="text-xl font-medium text-gray-900 text-center">Aman Kushwaha</h3>
-                <p className="text-lg text-gray-900 text-center">Documentation</p>
-              </a>
-              <a href="https://github.com/#" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
-                <img src="https://avatars.githubusercontent.com/u/90683544?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
-                <h3 className="text-xl font-medium text-gray-900 text-center">Ankit Vishwakarma</h3>
-                <p className="text-lg text-gray-900 text-center">Project Manager</p>
-              </a>
-              <a href="https://github.com/sanigautam" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
-                <img src="https://avatars.githubusercontent.com/u/138346290?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
-                <h3 className="text-xl font-medium text-gray-900 text-center">Sunny Gautam</h3>
-                <p className="text-lg text-gray-900 text-center">UI/UX Designer</p>
-              </a>
-              <a href="https://github.com/vinodkumarvkofficial" target="_blank" className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center hover:shadow-lg">
-                <img src="https://avatars.githubusercontent.com/u/114465454?v=4" alt="Team Member" className="w-36 h-36 rounded-full object-cover mb-4" />
-                <h3 className="text-xl font-medium text-gray-900 text-center">Vinod Kumar</h3>
-                <p className="text-lg text-gray-900 text-center">Tester</p>
+                <p className="text-lg text-gray-900 text-center">Tailwind</p>
               </a>
             </div>
             <p className="text-lg text-gray-700 mt-4">
