@@ -14,7 +14,6 @@ const Contact = () => {
   })
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(info);
     sendMessage();
     setInfo({
       email: "",

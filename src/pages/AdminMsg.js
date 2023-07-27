@@ -15,7 +15,6 @@ const AdminMsg = () => {
             const res = await axios.get(URL + 'admin/contact', {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             })
-            console.log(res)
             setMessages(res.data.response);
             if (res.data.success) {
                 toast.success(res.data.message, {
@@ -59,7 +58,7 @@ const AdminMsg = () => {
             const res = await axios.delete(URL + "admin/contact/" + id, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
-            setMessages(res.data.response);
+            setMessages(res.data.contacts);
             if (res.data.success) {
                 toast.success(res.data.message, {
                     position: "top-right",
