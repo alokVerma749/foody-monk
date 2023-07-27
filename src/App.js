@@ -14,6 +14,7 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 import AddCuisine from './pages/AddCuisine'
+import AddMenuItems from './pages/AddMenuItems'
 
 const Admin = lazy(() => import("./pages/Admin"));
 const About = lazy(() => import("./pages/About"));
@@ -84,6 +85,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/terms",
                 element: <Suspense fallback={<h1>Loading....</h1>}><Terms /></Suspense>
+            },
+            {
+                path: "/addmenuitems",
+                element: <AddMenuItems />
             },
         ],
         errorElement: <Error />

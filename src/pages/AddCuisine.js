@@ -17,6 +17,11 @@ const AddCuisine = () => {
         } catch (error) {
             console.log(error);
         }
+        setFormData({
+            name: "",
+            description: "",
+            image: ""
+        });
     };
 
     return (
