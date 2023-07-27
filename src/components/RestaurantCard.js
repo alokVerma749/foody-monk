@@ -1,10 +1,12 @@
 import { IMG_URL } from "../../utils/constants";
 
 const RestaurantCard = (props) => {
-    const { name, cloudinaryImageId, cuisines, area, costForTwo, avgRating, promoted } = props.resData.data;
+    const { name, cloudinaryImageId, cuisines, area, costForTwo, avgRating, promoted } = props.resData.info;
     return (
         <div className="h-fit rounded overflow-hidden bg-white">
+            {/* Promoted label for restaurants */}
             {promoted && <h1 className="bg-blue-400 text-white px-2 py-1 rounded inline-block absolute">Promoted</h1>}
+            {/* Normal Cards */}
             < img className="w-fit object-cover object-center" src={IMG_URL + cloudinaryImageId} alt="Food Image" />
             <div className="px-6 pt-4">
                 <div className="font-bold text-xl mb-2">{name}</div>
