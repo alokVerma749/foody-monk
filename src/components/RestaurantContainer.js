@@ -17,7 +17,6 @@ const ResaturantContainer = () => {
     if (onlineStatus === false) {
         return <Offline />
     }
-
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="pb-12">
             {/* Search & Filter btn Section */}
@@ -32,7 +31,7 @@ const ResaturantContainer = () => {
                         <button onClick={() => {
                             console.log(searchText);
                             const searchRestaurant = listOfRestaurants.filter(restaurant => (
-                                restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+                                restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
                             ))
                             setListOfFilteredRestaurants(searchRestaurant)
 
@@ -43,7 +42,7 @@ const ResaturantContainer = () => {
                     <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
                         onClick={() => {
                             const filteredList = listOfFilteredRestaurants.filter(
-                                (restaurant) => restaurant.data.avgRating >= 4
+                                (restaurant) => restaurant.info.avgRating >= 4
                             )
                             setListOfFilteredRestaurants(filteredList);
                         }}>
@@ -58,7 +57,7 @@ const ResaturantContainer = () => {
                     {
                         listOfFilteredRestaurants.map((restaurant) => {
                             return (
-                                <Link key={restaurant.data.id} to={'/restaurants/' + restaurant.data.id} className="p-2 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
+                                <Link key={restaurant.info.id} to={'/restaurants/' + restaurant.info.id} className="p-2 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
                                     < RestaurantCard resData={restaurant} />
                                 </Link>
                             )
