@@ -7,6 +7,7 @@ const Error = () => {
                 <div className="max-w-md text-center">
                     <h2 className="mb-8 font-extrabold text-9xl text-gray-400">
                         <span className="sr-only">{err.statusText}</span>{err.status}
+                        404
                     </h2>
                     <p className="text-2xl font-semibold md:text-3xl">{err.statusText}</p>
                     <p className="mt-4 mb-8 text-gray-600">But dont worry, you can find plenty of other things on our homepage.</p>
