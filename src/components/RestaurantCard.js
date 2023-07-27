@@ -1,7 +1,7 @@
 import { IMG_URL } from "../../utils/constants";
 
 const RestaurantCard = (props) => {
-    const { name, cloudinaryImageId, cuisines, area, costForTwo, avgRating, promoted } = props.resData.info;
+    const { name, cloudinaryImageId, cuisines, areaName, avgRating, promoted } = props.resData.info;
     return (
         <div className="h-fit rounded overflow-hidden bg-white">
             {/* Promoted label for restaurants */}
@@ -11,8 +11,7 @@ const RestaurantCard = (props) => {
             <div className="px-6 pt-4">
                 <div className="font-bold text-xl mb-2">{name}</div>
                 <p className="text-gray-700 text-sm mb-2">Cuisines: {cuisines.join(", ")}</p>
-                <p className="text-gray-700 text-sm mb-2">Address: {area}</p>
-                <p className="text-gray-700 text-sm mb-2">Rs. {costForTwo / 100}</p>
+                <p className="text-gray-700 text-sm mb-2">Address: {areaName}</p>
                 {
                     <div className={`${(avgRating > 3.9 ? "bg-green-600" : "bg-orange-500")} inline-flex items-center rounded p-1`}>
                         <svg className="w-4 h-4 fill-current text-white mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
