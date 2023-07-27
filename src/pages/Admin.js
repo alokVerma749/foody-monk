@@ -117,18 +117,26 @@ const Admin = () => {
             />
             {orders.length !== 0 ? (
                 <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 py-10 bg-gray-50 text-gray-800">
-                    <Link
-                        to={"/admin/addcuisine"}
-                        className="w-fit block mx-auto bg-green-600 text-white py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
-                    >
-                        Add Cuisine
-                    </Link>
-                    <Link
-                        to={"/admin/contact"}
-                        className="w-fit block mx-auto bg-transparent outline py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
-                    >
-                        Contacts
-                    </Link>
+                    <div className="buttons flex flex-row justify-center space-x-5">
+                        <Link
+                            to={"/admin/addcuisine"}
+                            className="w-fit block mx-auto bg-green-600 text-white py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
+                        >
+                            Add Cuisine
+                        </Link>
+                        <Link
+                            to={"/admin/contact"}
+                            className="w-fit block mx-auto bg-transparent outline hover:outline-none outline-1  py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:text-white hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
+                        >
+                            Contacts
+                        </Link>
+                        <Link
+                            to={"/admin/users"}
+                            className="w-fit block mx-auto bg-transparent outline hover:outline-none outline-1 py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600  hover:text-white hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
+                        >
+                            Users
+                        </Link>
+                    </div>
                     <h1 className="text-3xl font-semibold text-center text-red-700">
                         Pending Orders To Process
                     </h1>

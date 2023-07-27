@@ -13,17 +13,18 @@ import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
 
-const Admin = lazy(() => import("./pages/Admin"));
-const About = lazy(() => import("./pages/About"));
-const Privacy = lazy(() => import("./pages/Privacy"));
+const Admin = lazy(() => import("./pages/Admin"))
+const About = lazy(() => import("./pages/About"))
+const Privacy = lazy(() => import("./pages/Privacy"))
 const Terms = lazy(() => import("./pages/Terms"));
-const Signup = lazy(() => import("./pages/Signup"));
-const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"))
+const Login = lazy(() => import("./pages/Login"))
 
 const AddCuisine = lazy(() => import("./pages/AddCuisine"))
 const AddMenuItems = lazy(() => import("./pages/AddMenuItems"))
 const AdminMsg = lazy(() => import("./pages/AdminMsg"))
 const Contact = lazy(() => import("./pages/Contact"))
+const AdminUsers = lazy(() => import("./pages/AdminUsers"))
 
 const AppLayout = () => {
     return (
@@ -73,6 +74,10 @@ const appRouter = createBrowserRouter([
                 element: <Suspense fallback={<h1>Loading....</h1>}> <AdminMsg /></Suspense>
             },
             {
+                path: "/admin/users",
+                element: <Suspense fallback={<h1>Loading....</h1>}> <AdminUsers /></Suspense>
+            },
+            {
                 path: "/signup",
                 element: <Suspense fallback={<h1>Loading...</h1>}><Signup /></Suspense>
             },
@@ -96,7 +101,6 @@ const appRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Suspense fallback={<h1>Loading....</h1>}> <Contact /></Suspense>
             },
-
         ],
         errorElement: <Error />
     }
