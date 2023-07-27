@@ -31,7 +31,6 @@ const Signup = () => {
         try {
             const response = await axios.post(URL + 'user/signup', userData);
             if (response.data.success) {
-                console.log("toast");
                 toast.success(response.data.message, {
                     position: "top-right",
                     autoClose: 5000,
@@ -59,7 +58,6 @@ const Signup = () => {
             }
         }
         catch (error) {
-            console.log(error);
             toast.error(error.message, {
                 position: "top-right",
                 autoClose: 5000,

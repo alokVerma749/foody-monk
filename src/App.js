@@ -15,6 +15,7 @@ import Body from './components/Body'
 import Footer from './components/Footer'
 import AddCuisine from './pages/AddCuisine'
 import AddMenuItems from './pages/AddMenuItems'
+import AdminMsg from './pages/AdminMsg'
 
 const Admin = lazy(() => import("./pages/Admin"));
 const About = lazy(() => import("./pages/About"));
@@ -89,6 +90,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/addmenuitems",
                 element: <AddMenuItems />
+            },
+            {
+                path: "/admin/contact",
+                element: <AdminMsg />
             },
         ],
         errorElement: <Error />

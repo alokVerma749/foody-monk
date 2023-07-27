@@ -123,6 +123,12 @@ const Admin = () => {
                     >
                         Add Cuisine
                     </Link>
+                    <Link
+                        to={"/admin/contact"}
+                        className="w-fit block mx-auto bg-transparent outline py-2 px-4 mt-5 rounded-md hover:font-semibold hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200"
+                    >
+                        Contacts
+                    </Link>
                     <h1 className="text-3xl font-semibold text-center text-red-700">
                         Pending Orders To Process
                     </h1>

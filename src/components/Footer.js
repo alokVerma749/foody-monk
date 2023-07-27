@@ -43,9 +43,6 @@ const Footer = () => {
                         <p className="text-sm mb-3">
                             <a href="mailto:alokverma749@gmail.com">alokverma749@gmail.com</a>
                         </p>
-                        <p className="text-sm mb-3">
-                            <a href="mailto:contact@jalandharpaswan.com">contact@jalandharpaswan.com</a>
-                        </p>
                     </div>
                     <div className="w-full md:w-1/4 text-center">
                         <h3 className="text-xl font-bold mb-4">Important Pages</h3>
@@ -78,7 +75,7 @@ const Footer = () => {
                         &copy; {new Date().getFullYear()} Foody Monk. All rights reserved.
                     </div>
                     <div className="border-b border-gray-700 text-center text-sm">
-                        Created with ❣️ by <a href="https://github.com/jalandhar04" target="_blank" className="text-blue-400 hover:text-blue-500">Jalandhar</a> &amp; <a href="https://github.com/alokverma749" target="_blank" className="text-blue-400 hover:text-blue-500">Alok Verma</a>
+                        Created with ❣️ by <a href="https://github.com/alokverma749" target="_blank" className="text-blue-400 hover:text-blue-500"> <span> Alok Verma</span></a>
                     </div>
                 </div>
             </div>
