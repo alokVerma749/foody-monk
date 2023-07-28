@@ -26,7 +26,7 @@ const AdminUsers = () => {
     return (
         <div>
             <ul>
-                <h1 className='font-bold text-3xl m-5 text-center'>Messages</h1>
+                <h1 className='font-bold text-3xl m-5 text-center'>Registered Users</h1>
                 <li className='flex flex-row justify-around outline m-3 text-xl font-bold'>
                     <p>Name</p>
                     <p>Email</p>
