@@ -27,7 +27,7 @@ const ResaturantContainer = () => {
                         <input value={searchText} onChange={(e) => {
                             setSearchText(e.target.value);
                         }}
-                            type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2" />
+                            type="text" name="search" id="search" placeholder="SEARCH" className="outline-none shadow shadow-red-800 p-2 max-sm:mb-2 rounded px-5" />
                         <button onClick={() => {
                             console.log(searchText);
                             const searchRestaurant = listOfRestaurants.filter(restaurant => (
@@ -35,11 +35,11 @@ const ResaturantContainer = () => {
                             ))
                             setListOfFilteredRestaurants(searchRestaurant)
 
-                        }} type="submit" className="items-center bg-green-700 p-1 mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200">Search</button>
+                        }} type="submit" className="items-center bg-green-700  mx-4 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 px-4 py-2">Search</button>
                     </div>
 
                     {/* filter button */}
-                    <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap"
+                    <button type="button" className="bg-green-700 p-2 rounded-md text-white hover:bg-red-600 hover:shadow hover:shadow-red-800 transition ease-linear duration-200 max-sm:whitespace-nowrap px-4"
                         onClick={() => {
                             const filteredList = listOfFilteredRestaurants.filter(
                                 (restaurant) => restaurant.info.avgRating >= 4
@@ -57,7 +57,7 @@ const ResaturantContainer = () => {
                     {
                         listOfFilteredRestaurants.map((restaurant) => {
                             return (
-                                <Link key={restaurant.info.id} to={'/restaurants/' + restaurant.info.id} className="p-2 w-fit border border-grey rounded-md shadow-black shadow-md hover:shadow-lg hover:shadow-black">
+                                <Link key={restaurant.info.id} to={'/restaurants/' + restaurant.info.id} className="p-2 w-fit border border-grey rounded-md  hover:shadow transition">
                                     < RestaurantCard resData={restaurant} />
                                 </Link>
                             )
