@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foody Monk | Discover Delicious Restaurants</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <div id="root">
-        <h1>Not Rendered</h1>
+      <div class="preload-container">
+        <div class="preload-animation">
+          <div class="word-group-1">
+            <span class="letter">F</span>
+            <span class="letter">o</span>
+            <span class="letter">o</span>
+            <span class="letter">d</span>
+            <span class="letter">y</span>
+          </div>
+          <div class="word-group-2">
+            <span class="letter">M</span>
+            <span class="letter">o</span>
+            <span class="letter">n</span>
+            <span class="letter">k</span>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--To see the Preload Animation : comment this line and then run server -->
     <script type="module" src="./src/App.js"></script>
-</body>
+    <script>
+      const letters = document.querySelectorAll(".letter");
+      let currentIndex = 0;
+      function animateLetter(index) {
+        letters.forEach((letter, i) => {
+          if (i === index) {
+            letter.classList.add("active");
+          } else {
+            letter.classList.remove("active");
+          }
+        });
+        currentIndex = (currentIndex + 1) % letters.length;
+
+        setTimeout(() => animateLetter(currentIndex), 300); // Adjust delay as needed
+      }
+
+      setTimeout(() => animateLetter(currentIndex), 0.5);
+    </script>
+  </body>
 </html>
