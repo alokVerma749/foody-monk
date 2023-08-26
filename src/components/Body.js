@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { scroller } from 'react-scroll';
 
 import ResaturantContainer from "./RestaurantContainer";
+import Alert from "./Alert";
 
 
 const Body = () => {
@@ -16,6 +17,7 @@ const Body = () => {
         <main>
             {/* Hero Section */}
             <section className="bg-gray-900 text-white py-20">
+                <Alert />
                 <div className="sm:flex mx-auto items-center gap-5 max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Left Part */}
                     <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
